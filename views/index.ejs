@@ -20,7 +20,7 @@
           <input type="hidden" name="updatedItemId" value="<%= item.id %>">
           <input id="input<%=item.id%>" type="text" name="updatedItemTitle" value="<%= item.title %>" autocomplete="off"
             autofocus="true" hidden="true" />
-          <button id="done<%=item.id%>" class="edit" type="submit" onclick="handler2('<%=item.id%>')" hidden><img class="icon"
+          <button id="done<%=item.id%>" class="edit" type="submit" hidden><img class="icon"
               src="/assets/icons/check-solid.svg" alt="tick image"></button>
         </form>
         <button id="edit<%=item.id%>" class="edit" onclick="handler('<%=item.id%>')"><img class="icon"
@@ -42,12 +42,5 @@
       document.getElementById("input" + id).removeAttribute("hidden")
     }
   </script>
-  <script>
-    function handler2(id) {
-      document.getElementById("done" + id).setAttribute('hidden',true)
-      document.getElementById("input" + id).setAttribute('hidden',true)
-      document.getElementById("title" + id).removeAttribute('hidden')
-      document.getElementById("edit" + id).removeAttribute('hidden')
-    }
-  </script>
+
   <%- include('partials/footer.ejs'); -%>

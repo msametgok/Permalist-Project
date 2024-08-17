@@ -42,9 +42,15 @@ app.post("/edit", async (req, res) => {
   const id = req.body.updatedItemId;
   const newTitle = req.body.updatedItemTitle;
   await pool.query(`UPDATE items SET title = '${newTitle}' WHERE id = ${id}`);
+  res.redirect('/');
+  //UPDATE ETTIKTEN SONRA FRONTEND DE HATA VAR 
 });
 
-app.post("/delete", (req, res) => {});
+app.post("/delete", async (req, res) => {
+  const id = req.body.deleteItemId;
+  await pool.query(`DELETE FROM items WHERE id = ${id}`)
+  res.redirect('/')
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
